@@ -1,0 +1,42 @@
+// Veyano: the login's look (mockup v10.61, reconciliation-demand-matrix-mockup.html,
+// "/* login: standalone"). Tokens follow the browser's colour scheme via next-themes' .dark.
+:root {
+  --vy-bg: #f9fafb; --vy-card: #ffffff; --vy-tx: #111827; --vy-tx3: #6b7280;
+  --vy-photo-shade: none;
+}
+.dark {
+  --vy-bg: #0b1120; --vy-card: #111827; --vy-tx: #f9fafb; --vy-tx3: #9ca3af;
+  --vy-photo-shade: linear-gradient(rgba(11, 17, 32, 0.28), rgba(11, 17, 32, 0.28));
+}
+.vy-login {
+  display: grid; grid-template-columns: minmax(480px, 25%) 1fr; grid-template-rows: minmax(0, 1fr);
+  position: fixed; inset: 0; background: var(--vy-card); color: var(--vy-tx);
+}
+.vy-form { display: flex; overflow-y: auto; padding: 40px; }
+.vy-box { width: 100%; max-width: 360px; margin: auto; display: flex; flex-direction: column; }
+.vy-logo {
+  display: flex; align-items: baseline; font-weight: 700; font-size: 35px;
+  letter-spacing: -0.045em; line-height: 1; color: var(--vy-tx); margin-bottom: 46px;
+  img { height: 1.08em; width: auto; position: relative; z-index: 1; }
+  span { margin-left: -1.08em; }
+}
+.vy-photo {
+  position: relative; background-color: var(--vy-bg);
+  background-position: 72% center; background-size: cover; background-repeat: no-repeat;
+  &::before { content: ""; position: absolute; inset: 0; background: var(--vy-photo-shade); }
+}
+.vy-slogan {
+  position: absolute; left: 60px; top: 80px; right: 60px; margin: 0;
+  font-size: 25px; line-height: 36px; font-weight: 400; color: #fff;
+  text-shadow: 0 1px 12px rgba(15, 23, 42, 0.18);
+  &::after { content: ""; display: block; width: 34px; border-top: 1.5px solid rgba(255, 255, 255, 0.85); margin-top: 22px; }
+}
+.vy-step-head {
+  h1 { text-align: left; font-size: 26px; line-height: 34px; font-weight: 700; margin: 0; color: var(--vy-tx); }
+  p { color: var(--vy-tx3); margin: 4px 0 22px; text-align: left; }
+}
+@media (max-width: 900px) {
+  .vy-login { grid-template-columns: minmax(0, 1fr); }
+  .vy-photo { display: none; }
+  .vy-form { padding: 28px 16px 64px; }
+}

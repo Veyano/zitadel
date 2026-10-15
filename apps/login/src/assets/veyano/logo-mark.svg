@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1673 615" width="83.65" height="30.75">
+  <title>Veyano</title>
+  <defs>
+    <!-- rising arm and tail: violet at the tail, blue, bright cyan low on the rise -->
+    <linearGradient id="vy-a" gradientUnits="userSpaceOnUse" x1="1418" y1="3" x2="785" y2="463">
+      <stop offset="0" stop-color="#D552FC"/>
+      <stop offset=".18" stop-color="#4249FC"/>
+      <stop offset=".28" stop-color="#015EFC"/>
+      <stop offset=".68" stop-color="#00D8FD"/>
+      <stop offset=".85" stop-color="#00C6FD"/>
+      <stop offset="1" stop-color="#008BFD"/>
+    </linearGradient>
+    <!-- left arm: blue, a lighter band on the descent, deep blue in the trough -->
+    <linearGradient id="vy-l" gradientUnits="userSpaceOnUse" x1="251" y1="-35" x2="693" y2="646">
+      <stop offset="0" stop-color="#0170FD"/>
+      <stop offset=".08" stop-color="#005CFD"/>
+      <stop offset=".28" stop-color="#01A8FC"/>
+      <stop offset=".62" stop-color="#0043F1"/>
+      <stop offset=".88" stop-color="#0058FC"/>
+      <stop offset="1" stop-color="#0035D7"/>
+    </linearGradient>
+    <!-- underside of the left tip -->
+    <linearGradient id="vy-u" gradientUnits="userSpaceOnUse" x1="121" y1="73" x2="27" y2="141">
+      <stop offset="0" stop-color="#002BB0"/>
+      <stop offset=".15" stop-color="#0027A9"/>
+      <stop offset=".83" stop-color="#0137CC"/>
+      <stop offset="1" stop-color="#0155E4"/>
+    </linearGradient>
+    <!-- underside of the tail: indigo in the curl, magenta at the tip -->
+    <linearGradient id="vy-t" gradientUnits="userSpaceOnUse" x1="1428" y1="89" x2="1561" y2="293">
+      <stop offset="0" stop-color="#2010C3"/>
+      <stop offset=".43" stop-color="#7316F6"/>
+      <stop offset=".93" stop-color="#D94CFC"/>
+      <stop offset="1" stop-color="#DA3EF3"/>
+    </linearGradient>
+    <!-- fold rim: crisp cyan, fading in at the top -->
+    <linearGradient id="vy-f" gradientUnits="userSpaceOnUse" x1="614" y1="325" x2="920" y2="501">
+      <stop offset="0" stop-color="#1EE3FF" stop-opacity=".2"/>
+      <stop offset=".3" stop-color="#1EE3FF"/>
+      <stop offset="1" stop-color="#3DEBFF"/>
+    </linearGradient>
+    <!-- rim light on the left tip (cyan) and the tail (pale pink) -->
+    <linearGradient id="vy-h" gradientUnits="userSpaceOnUse" x1="4" y1="0" x2="1668" y2="0">
+      <stop offset="0" stop-color="#2FCBFF"/>
+      <stop offset=".14" stop-color="#19E0FF"/>
+      <stop offset=".75" stop-color="#B58CFF" stop-opacity=".4"/>
+      <stop offset=".95" stop-color="#F6B4FF" stop-opacity=".85"/>
+    </linearGradient>
+  </defs>
+  <!-- whole silhouette in the rising-arm gradient; the faces below sit on it, so no seams show -->
+  <path fill="url(#vy-a)" d="M1668 224C1664 238 1628 259 1615 266C1515 314 1454 233 1379 184C1364 174 1316 151 1299 160C1279 170 1261 184 1244 197C1112 294 1028 428 904 525C783 619 682 646 550 551C509 521 473 482 441 442C364 347 304 236 215 152C164 103 150 110 86 117C71 119 13 128 5 118C8 105 42 82 53 73C110 28 182 5 253 19C378 42 468 147 544 242C580 287 619 329 660 370C680 391 701 414 725 431C761 415 820 357 852 330C881 304 909 277 936 250C1064 127 1264 -86 1455 46C1481 63 1505 87 1524 111C1549 142 1575 179 1608 202C1622 212 1668 224 1668 224Z"/>
+  <!-- left arm front face, crossing over the rising arm at the fold -->
+  <path fill="url(#vy-l)" d="M621 331C618 328 617 326 614 326C627 348 652 368 670 386C720 436 789 504 860 517C897 523 903 509 926 506C904 531 863 557 834 573C589 716 422 411 300 251C274 216 247 180 214 151C159 103 158 111 90 117C74 118 14 128 5 119C6 107 36 86 46 78C93 40 150 15 211 15C353 15 457 134 539 236C557 259 610 312 621 331Z"/>
+  <!-- left tip turned over: its darker underside -->
+  <path fill="url(#vy-u)" d="M162 113C128 106 80 119 45 121C35 122 11 127 4 118C8 110 18 107 26 103C70 82 120 89 162 113Z"/>
+  <!-- tail turned over: its underside -->
+  <path fill="url(#vy-t)" d="M1668 223C1667 230 1660 235 1655 239C1624 266 1583 285 1541 280C1455 269 1375 149 1302 159C1291 160 1268 180 1258 187C1322 132 1438 84 1519 125C1557 145 1577 181 1612 205C1629 216 1662 219 1668 223Z"/>
+  <!-- fold rim: tapered sliver on the lit edge of the left arm where it passes over the rise -->
+  <path fill="url(#vy-f)" d="M614 326C665 386 722 444 789 486C819 504 858 521 894 514C906 512 918 507 929 501C905 504 892 514 866 511C825 505 791 484 759 459C706 420 661 371 614 326Z"/>
+  <!-- rim light: two tapered slivers along the turn-over edges of the left tip and the tail -->
+  <path fill="url(#vy-h)" d="M10 109C27 100 45 93 64 90C128 81 183 121 229 160C183 117 121 74 54 90C38 93 24 100 10 109ZM1242 194C1303 153 1371 111 1447 110C1466 110 1484 112 1502 118C1515 122 1527 129 1539 137C1528 129 1516 121 1503 117C1414 84 1311 142 1242 194Z"/>
+</svg>
