@@ -23,7 +23,7 @@ never changed; only `apps/login/` (MIT) and `.github/workflows/veyano-login.yml`
 - `apps/login/src/components/dynamic-theme.tsx` -- one left-aligned step, no card or logo
 - `apps/login/src/app/global-error.tsx` -- the error page in the shell
 - `apps/login/src/styles/globals.scss` -- one `@use "./veyano.scss"`
-- `apps/login/src/components/input.tsx` -- renders PasswordToggle for type=password
+- `apps/login/src/components/input.tsx` -- renders PasswordToggle for type=password, and names a password input by its label text alone (`aria-labelledby`: browsers would add the eye's name)
 - `apps/login/.env` -- NEXT_PUBLIC_APPLICATION_NAME=Veyano
 
 ## Added files (ours only)

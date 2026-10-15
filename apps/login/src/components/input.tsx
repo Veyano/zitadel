@@ -3,7 +3,7 @@
 import { getComponentRoundness } from "@/lib/theme";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import { clsx } from "clsx";
-import { ChangeEvent, DetailedHTMLProps, forwardRef, InputHTMLAttributes, ReactNode, useState } from "react";
+import { ChangeEvent, DetailedHTMLProps, forwardRef, InputHTMLAttributes, ReactNode, useId, useState } from "react";
 import { PasswordToggle } from "./password-toggle";
 
 export type TextInputProps = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
@@ -59,12 +59,15 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     // Veyano: the eye (password-toggle.tsx) swaps the type; every other input is unchanged.
     const [shown, setShown] = useState(false);
     const isPassword = props.type === "password";
+    // Veyano: the eye sits inside the <label>, and browsers add its name to the label's; a
+    // password input is named by the label's text alone.
+    const labelId = useId();
     // Use theme-based roundness if not explicitly provided
     const actualRoundness = roundness || getDefaultInputRoundness();
 
     return (
       <label className="text-12px text-input-light-label dark:text-input-dark-label relative flex flex-col">
-        <span className={`mb-1 leading-3 ${error ? "text-warn-light-500 dark:text-warn-dark-500" : ""}`}>
+        <span id={labelId} className={`mb-1 leading-3 ${error ? "text-warn-light-500 dark:text-warn-dark-500" : ""}`}>
           {label} {required && "*"}
         </span>
         <div className={isPassword ? "vy-pw relative flex" : "contents"}>
@@ -79,6 +82,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             autoComplete={props.autoComplete ?? "off"}
             onChange={(e) => onChange && onChange(e)}
             onBlur={(e) => onBlur && onBlur(e)}
+            aria-labelledby={isPassword ? labelId : undefined}
             {...props}
             type={isPassword && shown ? "text" : props.type}
           />
