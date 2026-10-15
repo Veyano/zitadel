@@ -3,7 +3,8 @@
 import { getComponentRoundness } from "@/lib/theme";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import { clsx } from "clsx";
-import { ChangeEvent, DetailedHTMLProps, forwardRef, InputHTMLAttributes, ReactNode } from "react";
+import { ChangeEvent, DetailedHTMLProps, forwardRef, InputHTMLAttributes, ReactNode, useState } from "react";
+import { PasswordToggle } from "./password-toggle";
 
 export type TextInputProps = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
   label: string;
@@ -55,6 +56,9 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     },
     ref,
   ) => {
+    // Veyano: the eye (password-toggle.tsx) swaps the type; every other input is unchanged.
+    const [shown, setShown] = useState(false);
+    const isPassword = props.type === "password";
     // Use theme-based roundness if not explicitly provided
     const actualRoundness = roundness || getDefaultInputRoundness();
 
@@ -63,19 +67,23 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         <span className={`mb-1 leading-3 ${error ? "text-warn-light-500 dark:text-warn-dark-500" : ""}`}>
           {label} {required && "*"}
         </span>
-        <input
-          suppressHydrationWarning
-          ref={ref}
-          className={styles(!!error, !!disabled, actualRoundness)}
-          defaultValue={defaultValue}
-          required={required}
-          disabled={disabled}
-          placeholder={placeholder}
-          autoComplete={props.autoComplete ?? "off"}
-          onChange={(e) => onChange && onChange(e)}
-          onBlur={(e) => onBlur && onBlur(e)}
-          {...props}
-        />
+        <div className={isPassword ? "vy-pw relative flex" : "contents"}>
+          <input
+            suppressHydrationWarning
+            ref={ref}
+            className={clsx(styles(!!error, !!disabled, actualRoundness), isPassword && "pr-[42px]")}
+            defaultValue={defaultValue}
+            required={required}
+            disabled={disabled}
+            placeholder={placeholder}
+            autoComplete={props.autoComplete ?? "off"}
+            onChange={(e) => onChange && onChange(e)}
+            onBlur={(e) => onBlur && onBlur(e)}
+            {...props}
+            type={isPassword && shown ? "text" : props.type}
+          />
+          {isPassword && <PasswordToggle shown={shown} onToggle={() => setShown((s) => !s)} />}
+        </div>
 
         {suffix && (
           <span

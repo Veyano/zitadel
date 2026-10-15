@@ -40,3 +40,11 @@
   .vy-photo { display: none; }
   .vy-form { padding: 28px 16px 64px; }
 }
+
+.vy-pw input { flex: 1 1 auto; }
+.vy-eye {
+  position: absolute; right: 4px; top: 3px; width: 34px; height: 34px; border: 0; border-radius: 6px;
+  background: none; color: #9ca3af; display: flex; align-items: center; justify-content: center; cursor: pointer;
+  &:hover { color: #374151; background: #f9fafb; }
+}
+.dark .vy-eye:hover { color: #e5e7eb; background: #162033; }
