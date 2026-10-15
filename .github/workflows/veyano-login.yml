@@ -18,9 +18,16 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           fetch-depth: 0
+          # No write-scoped token in .git/config while pnpm runs the monorepo's install scripts.
+          persist-credentials: false
       - name: The tag is on a veyano/* branch
+        env:
+          TOKEN: ${{ github.token }}
         run: |
-          git fetch --no-tags origin '+refs/heads/veyano/*:refs/remotes/origin/veyano/*'
+          # The checkout kept no credentials: only this one fetch gets the token.
+          auth="$(printf 'x-access-token:%s' "$TOKEN" | base64 -w0)"
+          git -c http.extraheader="AUTHORIZATION: basic $auth" \
+            fetch --no-tags origin '+refs/heads/veyano/*:refs/remotes/origin/veyano/*'
           git branch -r --contains "$GITHUB_SHA" | grep -q 'origin/veyano/' \
             || { echo "tag $GITHUB_REF_NAME is not on a veyano/* branch" >&2; exit 1; }
       - name: The tag matches the release this branch was cut from
@@ -30,7 +37,7 @@ jobs:
             "$base"-veyano.*) echo "building $GITHUB_REF_NAME on $base" ;;
             *) echo "tag $GITHUB_REF_NAME does not start with the branch's release $base" >&2; exit 1 ;;
           esac
-      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4.4.0
+      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4.4.0 (also tagged v5.0.0)
         with:
           run_install: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
