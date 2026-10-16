@@ -8,7 +8,7 @@ never changed; only `apps/login/` (MIT) and `.github/workflows/veyano-login.yml`
 
 | Branch | Upstream tag | Image tags (digest) |
 |---|---|---|
-| `veyano/v4.19.4` | `v4.19.4` (101343ad) | `v4.19.4-veyano.1` (sha256:b0a57f63198de2e3aafc2504b3bca8139a8db78d194b3ffe20be5f77a06433a0); `v4.19.4-veyano.2` (digest: from its run) |
+| `veyano/v4.19.4` | `v4.19.4` (101343ad) | `v4.19.4-veyano.1` (sha256:b0a57f63198de2e3aafc2504b3bca8139a8db78d194b3ffe20be5f77a06433a0); `v4.19.4-veyano.2` (superseded the same day); `v4.19.4-veyano.3` (digest: from its run) |
 
 ## Our commits (on top of the tag)
 
@@ -16,7 +16,7 @@ never changed; only `apps/login/` (MIT) and `.github/workflows/veyano-login.yml`
 2. Layout: VeyanoShell (photo, slogan, logo), DynamicTheme as one step, no switches, Inter.
 3. Eye: PasswordToggle in TextInput.
 4. This file, the upstream check, the image workflow.
-5. Tab title: the layout's title template "%s · Veyano" (KAN-128 RT2 ruling, veyano.2).
+5. Tab title: the layout's title template "%s · Veyano" with the fixed default "Inloggen bij Veyano" (KAN-128 RT2 ruling, veyano.2 and .3).
 
 ## Touched upstream files
 

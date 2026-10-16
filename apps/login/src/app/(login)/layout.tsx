@@ -6,7 +6,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { VeyanoShell } from "@/components/veyano-shell";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
 import localFont from "next/font/local";
 import React, { Suspense } from "react";
 
@@ -22,10 +21,10 @@ const inter = localFont({
 });
 
 // Veyano: every tab carries the brand -- a page's own title becomes "Welkom terug · Veyano";
-// a page without one shows common.title ("Inloggen bij Veyano").
+// a page without one shows "Inloggen bij Veyano". The default is fixed: through the layout's
+// translations it came out as Zitadel's stock "Inloggen met Zitadel" (RT2, /otp/.../set).
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("common");
-  return { title: { template: "%s · Veyano", default: t("title") } };
+  return { title: { template: "%s · Veyano", default: "Inloggen bij Veyano" } };
 }
 
 // Veyano: no language switch (the browser's language decides) and no theme switch (the
