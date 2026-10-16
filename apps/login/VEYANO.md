@@ -8,7 +8,7 @@ never changed; only `apps/login/` (MIT) and `.github/workflows/veyano-login.yml`
 
 | Branch | Upstream tag | Image tags (digest) |
 |---|---|---|
-| `veyano/v4.19.4` | `v4.19.4` (101343ad) | `v4.19.4-veyano.1` (sha256:b0a57f63198de2e3aafc2504b3bca8139a8db78d194b3ffe20be5f77a06433a0) |
+| `veyano/v4.19.4` | `v4.19.4` (101343ad) | `v4.19.4-veyano.1` (sha256:b0a57f63198de2e3aafc2504b3bca8139a8db78d194b3ffe20be5f77a06433a0); `v4.19.4-veyano.2` (digest: from its run) |
 
 ## Our commits (on top of the tag)
 
@@ -16,10 +16,11 @@ never changed; only `apps/login/` (MIT) and `.github/workflows/veyano-login.yml`
 2. Layout: VeyanoShell (photo, slogan, logo), DynamicTheme as one step, no switches, Inter.
 3. Eye: PasswordToggle in TextInput.
 4. This file, the upstream check, the image workflow.
+5. Tab title: the layout's title template "%s · Veyano" (KAN-128 RT2 ruling, veyano.2).
 
 ## Touched upstream files
 
-- `apps/login/src/app/(login)/layout.tsx` -- the shell, Inter, no language/theme switch
+- `apps/login/src/app/(login)/layout.tsx` -- the shell, Inter, no language/theme switch, the title template "%s · Veyano"
 - `apps/login/src/components/dynamic-theme.tsx` -- one left-aligned step, no card or logo
 - `apps/login/src/app/global-error.tsx` -- the error page in the shell
 - `apps/login/src/styles/globals.scss` -- one `@use "./veyano.scss"`

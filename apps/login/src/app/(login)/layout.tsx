@@ -21,9 +21,11 @@ const inter = localFont({
   display: "swap",
 });
 
+// Veyano: every tab carries the brand -- a page's own title becomes "Welkom terug · Veyano";
+// a page without one shows common.title ("Inloggen bij Veyano").
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("common");
-  return { title: t("title") };
+  return { title: { template: "%s · Veyano", default: t("title") } };
 }
 
 // Veyano: no language switch (the browser's language decides) and no theme switch (the
