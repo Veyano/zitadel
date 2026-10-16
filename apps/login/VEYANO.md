@@ -8,7 +8,7 @@ never changed; only `apps/login/` (MIT) and `.github/workflows/veyano-login.yml`
 
 | Branch | Upstream tag | Image tags (digest) |
 |---|---|---|
-| `veyano/v4.19.4` | `v4.19.4` (101343ad) | `v4.19.4-veyano.1` (sha256:b0a57f63198de2e3aafc2504b3bca8139a8db78d194b3ffe20be5f77a06433a0); `v4.19.4-veyano.2` (superseded the same day); `v4.19.4-veyano.3` (digest: from its run) |
+| `veyano/v4.19.4` | `v4.19.4` (101343ad) | `v4.19.4-veyano.1` (sha256:b0a57f63198de2e3aafc2504b3bca8139a8db78d194b3ffe20be5f77a06433a0); `v4.19.4-veyano.2` (superseded the same day); `v4.19.4-veyano.3` (sha256:aecf899e0ab423da8bfe1d92d8ca05a5856f778fe07c996de44dd3020cef7681) |
 
 ## Our commits (on top of the tag)
 
